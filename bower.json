@@ -1,0 +1,31 @@
+{
+  "name": "framework",
+  "description": "A thing.",
+  "version": "1.0.0",
+  "keywords": [
+    "css",
+    "js",
+    "sass",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "http://ryan.vaness.us",
+  "main": [
+    "sass/style.scss",
+    "style.css"
+  ],
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
