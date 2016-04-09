@@ -47,13 +47,31 @@ function get_module( $file ){
 function get_url(){
 
     return sprintf(
-        "%s://%s%s",
+        "%s://%s",
         isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
-        $_SERVER['SERVER_NAME'],
-        $_SERVER['REQUEST_URI']
+        $_SERVER['SERVER_NAME']
     );
 }
 
 function writeln($line_in) {
     echo $line_in."<br/>";
+}
+require( DIRPATH . '/assets/php/scripts_styles.php' );
+
+function load_tag($tag_type, $url){
+
+    $type = '';
+    $tag  = '';
+    if ( 'link' === $tag_type ){
+        $type = 'css';
+        $tag = "<$tag_type type='text/$type' rel='stylesheet' href='$url'>";
+    } elseif ( 'script' === $tag_type ) {
+        $type = 'javascript';
+        $tag = "<$tag_type type='text/$type' src='$url'></$tag_type>";
+    }
+
+    if( $tag ){
+        return $tag;
+    }
+    return false;
 }

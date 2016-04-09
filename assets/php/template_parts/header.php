@@ -6,7 +6,14 @@
 <!doctype html>
 <html ng-app>
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+        <?php 
+            get_fonts();
+            get_header_scripts();
+            $stuff = explode( ',', get_styles() ); 
+            foreach($stuff as $things){
+                echo $things;
+            }
+        ?>
     </head>
     <body>
         <header>
