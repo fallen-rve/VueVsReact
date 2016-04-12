@@ -4,16 +4,16 @@
  */
 ?>
 <!doctype html>
-<html ng-app>
+<html>
     <head>
-        <?php 
-            get_fonts();
-            get_header_scripts();
-            $stuff = explode( ',', get_styles() ); 
-            foreach($stuff as $things){
-                echo $things;
-            }
-        ?>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title><?php echo $this->getTitle();?></title>
+
+        <!-- Links CSS Files -->
+        <link type="text/css" rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>

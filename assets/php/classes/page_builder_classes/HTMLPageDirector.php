@@ -13,7 +13,7 @@ class HTMLPageDirector extends AbstractPageDirector {
         $this->builder->setText('Testing, testing, testing!');
         $this->builder->setText('Testing, testing, testing, or!');
         $this->builder->setText('Testing, testing, testing, more!');
-        $this->builder->formatPage();
+        $this->builder->setPage();
     }
     public function getPage() {
         return $this->builder->getPage();

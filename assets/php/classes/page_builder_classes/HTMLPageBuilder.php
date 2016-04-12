@@ -16,8 +16,8 @@ class HTMLPageBuilder extends AbstractPageBuilder {
     function setText($text_in) {
         $this->page->setText($text_in);
     }
-    function formatPage() {
-        $this->page->formatPage();
+    function setPage() {
+        $this->page->setPage();
     }
     function getPage() {
         return $this->page;

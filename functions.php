@@ -24,14 +24,6 @@ function set_page( $page ) {
 
 }
 
-function get_header() {
-    require_once 'header.php';
-}
-
-function get_footer() {
-    require_once 'footer.php';
-}
-
 function get_module( $file ){
 
     $file = './modules/' . $file . '.php';
@@ -55,23 +47,4 @@ function get_url(){
 
 function writeln($line_in) {
     echo $line_in."<br/>";
-}
-require( DIRPATH . '/assets/php/scripts_styles.php' );
-
-function load_tag($tag_type, $url){
-
-    $type = '';
-    $tag  = '';
-    if ( 'link' === $tag_type ){
-        $type = 'css';
-        $tag = "<$tag_type type='text/$type' rel='stylesheet' href='$url'>";
-    } elseif ( 'script' === $tag_type ) {
-        $type = 'javascript';
-        $tag = "<$tag_type type='text/$type' src='$url'></$tag_type>";
-    }
-
-    if( $tag ){
-        return $tag;
-    }
-    return false;
 }

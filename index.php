@@ -18,5 +18,5 @@ require( DIRPATH . '/assets/php/classes/page_builder.php' );
 $pageBuilder = new HTMLPageBuilder();
 $pageDirector = new HTMLPageDirector($pageBuilder);
 $pageDirector->buildPage();
-$page = $pageDirector->GetPage();
-writeln($page->showPage());
+$page = $pageDirector->getPage();
+print($page->getPage());
