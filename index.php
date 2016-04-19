@@ -16,7 +16,6 @@ define( "DOMAINNAME", get_url() );
 require( DIRPATH . '/assets/php/classes/page_builder.php' );
 
 $pageBuilder = new HTMLPageBuilder();
-$pageDirector = new HTMLPageDirector($pageBuilder);
+$pageDirector = new HTMLPageDirector( $pageBuilder, $_GET['page'] );
 $pageDirector->buildPage();
-$page = $pageDirector->getPage();
-print($page->getPage());
+echo 'hello';

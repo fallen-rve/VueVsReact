@@ -4,9 +4,6 @@
  */
 class HTMLPage {
     private $page = NULL;
-    private $page_title = NULL;
-    private $page_heading = NULL;
-    private $page_text = NULL;
     function __construct() {
 
     }
@@ -30,6 +27,30 @@ class HTMLPage {
     }
 
     /**
+     * [setFile description]
+     * @param [type] $file [description]
+     */
+    function setFile($file){
+        $this->filePath = $file;
+    }
+    /**
+     * [getFile description]
+     * @return [type] [description]
+     */
+    function getFile(){
+        return $this->filePath;
+    }
+
+    /**
+     * Returns the contents of 
+     */
+    function setContent() {
+        ob_start();
+            require $this->getFile();
+        return ob_get_clean();
+    }
+
+    /**
      * returns the constructed page
      * @return string
      */
@@ -42,56 +63,9 @@ class HTMLPage {
      */
     function setPage() {
         $this->page  = $this->setHeader();
-
-        $this->page .= '<h1>'.$this->getHeading().'</h1>';
-        $this->page .= $this->getText();
-
+        $this->page .= $this->setContent();
         $this->page .= $this->setFooter();
-    }
-
-    /**
-     * Getter method for the title
-     * @return string
-     */
-    function getTitle(){
-        return $this->page_title;
-    }
-    /**
-     * Setter method for the title
-     * @param string
-     */
-    function setTitle($title_in) {
-        $this->page_title = $title_in;
-    }
-
-    /**
-     * Getter method for the page headline
-     * @return string
-     */
-    function getHeading(){
-        return $this->page_heading;
-    }
-    /**
-     * Setter method for the page headline
-     * @param string
-     */
-    function setHeading($heading_in) {
-        $this->page_heading = $heading_in;
-    }
-
-    /**
-     * Getter method for the page content
-     * @return string
-     */
-    function getText(){
-        return $this->page_text;
-    }
-    /**
-     * Setter method for the page content
-     * @param string
-     */
-    function setText($text_in) {
-        $this->page_text .= $text_in;
+        var_dump($this->page);
     }
 
 }
