@@ -6,9 +6,8 @@ class HTMLPageDirector extends AbstractPageDirector {
     private $page_url;
     private $builder = NULL;
 
-    public function __construct(AbstractPageBuilder $builder_in, $page_url_in) {
+    public function __construct( $page_url_in) {
         $this->setURL( $page_url_in );
-        $this->builder = $builder_in;
     }
 
     public function buildPage() {

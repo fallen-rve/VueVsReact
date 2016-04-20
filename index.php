@@ -15,7 +15,7 @@ define( "DOMAINNAME", get_url() );
 // Loads the Page Builder Class Handler
 require( DIRPATH . '/assets/php/classes/page_builder.php' );
 
-$pageBuilder = new HTMLPageBuilder();
-$pageDirector = new HTMLPageDirector( $pageBuilder, $_GET['page'] );
-$pageDirector->buildPage();
+$pageDirector = new HTMLPageDirector( $_GET['page'] );
+$pageBuilder = new HTMLPageBuilder( $pageDirector );
+$pageBuilder->buildPage();
 echo 'hello';
