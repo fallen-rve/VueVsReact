@@ -135,8 +135,8 @@ class Page {
     $this->body = $body;
   }
 
-  public function setContent($page){
-    $page = $_GET['page'];
+  public function setContent(){
+    $page = isset($_GET['page']) ? $_GET['page']: false;
     $page = basename($page);
 
     if( !$page || empty($page) ){

@@ -19,7 +19,7 @@ require( DIRPATH . '/functions.php' );
 require( DIRPATH . '/assets/php/classes/Page.php' );
 
 $page = new Page();
-$page->setContent($_GET['page']);
+$page->setContent();
 
 $page->doctype('html', 'transitional');
 $page->title('page1');
