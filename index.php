@@ -21,12 +21,6 @@ require( DIRPATH . '/assets/php/classes/Page.php' );
 $page = new Page();
 $page->setContent();
 
-$page->doctype('html', 'transitional');
-$page->title('page1');
-$page->description ('Allows you to easily manipulate every aspect of an html page while it is being created.');
-$page->keywords('php, html, page, class');
-$page->robots(false);
-$page->charset ('utf-8');
 $page->link( 
     array(
         'style.css'
