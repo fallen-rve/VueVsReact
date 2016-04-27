@@ -1,18 +1,16 @@
 <?php
-/**
- * 
- */
+    // Save end of file markup
+    $endFile = $this->include_footer_scripts();
+    $endFile .= ($frameset) ? "\n</frameset>" : "\n</body>";
+    $endFile .= "\n</html>";
+    if (!$this->xhtml) $endFile = str_replace(' />', '>', $endFile);
 ?>
         </div>
         <footer>
-
+        <p>Footer Text</p>
         </footer>
 
-        <!-- Links JS Files -->
-        <script type="text/javascript" src="assets/bower_components/jquery/dist/jquery.min.js"></script>
-        <script type="text/javascript" src="assets/bower_components/jquery-ui/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="assets/bower_components/underscore/underscore-min.js"></script>
-        <script type="text/javascript" src="assets/bower_components/backbone/backbone-min.js"></script>
-        
-    </body>
-</html>
+<?php 
+    
+    // Echo end of file markup
+    echo $endFile;

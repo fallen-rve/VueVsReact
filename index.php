@@ -29,11 +29,15 @@ $page->robots(false);
 $page->charset ('utf-8');
 $page->link( 
     array(
-        '/style.css',
-        '/assets/bower_components/jquery/dist/jquery.min.js',
-        '/assets/bower_components/jquery-ui/jquery-ui.min.js',
-        '/assets/bower_components/underscore/underscore.js',
-        '/assets/bower_components/backbone/backbone.js'
+        'style.css'
+    )
+);
+$page->footer_link( 
+    array(
+        "assets/bower_components/jquery/dist/jquery.min.js",
+        "assets/bower_components/jquery-ui/jquery-ui.min.js",
+        "assets/bower_components/underscore/underscore.js",
+        "assets/bower_components/backbone/backbone.js"
     )
 );
 

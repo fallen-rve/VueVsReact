@@ -27,6 +27,7 @@ class Page {
   private $xhtml = true;
   private $charset = 'utf-8';
   private $include = array();
+  private $footer_include = array();
   private $jquery = array();
   private $body = '';
   private $page = '';
@@ -126,6 +127,15 @@ class Page {
     }
   }
 
+  public function footer_link($link, $prepend=false) {
+    if (!is_array($link)) $link = array($link);
+    if ($prepend) {
+      $this->footer_include = array_merge($link, $this->footer_include);
+    } else {
+      foreach ($link as $value) $this->footer_include[] = $value;
+    }
+  }
+
   public function jquery($code, $oneliner=true) {
     if ($oneliner) $code = $this->oneliner($code);
     $this->jquery[] = $code;
@@ -187,30 +197,17 @@ class Page {
   }
 
   public function display($content='') {
-    $html = '';
-    $type = ($this->xhtml) ? 'xhtml' : 'html';
-    $frameset = false;
-    if (strpos($content, '<frame ') !== false) { // Then this is a frameset ...
-      $frameset = true;
-      $this->doctype($type, 'frameset');
-    } elseif (strpos($this->doctype, 'frameset') !== false) { // If we're here then it's not ...
-      $this->doctype($type, 'transitional');
-    }
-    $html .= $this->doctype . "\n";
-    $html .= '<html';
-    if ($this->xhtml) $html .= ' lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml"';
-    $html .= '>' . "\n";
-    $html .= '<head>' . "\n";
-    $html .= $this->meta_tags();
-    $html .= $this->include_scripts();
-    $html .= '</head>' . "\n";
-    $html .= ($frameset) ? '<frameset' : '<body';
-    if (!empty($this->body)) $html .= ' ' . $this->body;
-    $html .= '>';
+
+    ob_start();
+        include DIRPATH . '/assets/php/template_parts/header.php';
+    $html .= ob_get_clean();
+
     $html .= trim($content);
-    $html .= ($frameset) ? "\n</frameset>" : "\n</body>";
-    $html .= "\n</html>";
-    if (!$this->xhtml) $html = str_replace(' />', '>', $html);
+
+    ob_start();
+        include DIRPATH . '/assets/php/template_parts/footer.php';
+    $html .= ob_get_clean();
+
     return $html;
   }
 
@@ -227,6 +224,17 @@ class Page {
 
   private function include_scripts() {
     $scripts = $this->combine_scripts($this->sort_scripts($this->include));
+    if (!empty($this->jquery)) {
+      $this->jquery = array_unique($this->jquery);
+      $scripts .= '  <script type="text/javascript">$(document).ready(function(){' . "\n  ";
+      $scripts .= implode("\n  ", $this->jquery);
+      $scripts .= "\n  })</script>\n";
+    }
+    return $scripts;
+  }
+
+  private function include_footer_scripts() {
+    $scripts = $this->combine_scripts($this->sort_scripts($this->footer_include));
     if (!empty($this->jquery)) {
       $this->jquery = array_unique($this->jquery);
       $scripts .= '  <script type="text/javascript">$(document).ready(function(){' . "\n  ";
@@ -261,12 +269,12 @@ class Page {
     }
     if (isset($sorted['css'])) {
       foreach ($sorted['css'] as $script) {
-        $scripts[] = '<link rel="stylesheet" type="text/css" href="' . $script . '.css" />';
+        $scripts[] = '<link rel="stylesheet" type="text/css" href="' . BASE_URL . $script . '.css" />';
       }
     }
     if (isset($sorted['js'])) {
       foreach ($sorted['js'] as $script) {
-        $scripts[] = '<script type="text/javascript" src="' . $script . '.js"></script>';
+        $scripts[] = '<script type="text/javascript" src="' . BASE_URL . $script . '.js"></script>';
       }
     }
     if (isset($sorted['other'])) $scripts = array_merge($scripts, $sorted['other']);
