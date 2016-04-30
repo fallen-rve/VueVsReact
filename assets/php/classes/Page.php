@@ -147,7 +147,6 @@ class Page {
 
   public function setContent(){
     $page = isset($_GET['page']) ? $_GET['page']: false;
-    $page = basename($page);
 
     if( !$page || empty($page) ){
         $page = 'index';

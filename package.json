@@ -10,21 +10,14 @@
   "bugs": {
     "url": ""
   },
-  "dependencies": {
-    
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^3.6.0",
+    "nodemon": "^1.9.2"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"No test specified\""
-  },
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "author": "Ryan Van Ess",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": ""
-  },
+  "build-css": "node-sass --include-path scss assets/scss/style.scss ./"
+},
+  "license": "UNLICENSED",
   "homepage": ""
 }

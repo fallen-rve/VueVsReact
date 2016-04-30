@@ -24,7 +24,8 @@ $page->setContent();
 $page->link( 
     array(
         'style.css'
-    )
+    ),
+    true
 );
 $page->footer_link( 
     array(
@@ -32,7 +33,8 @@ $page->footer_link(
         "assets/bower_components/jquery-ui/jquery-ui.min.js",
         "assets/bower_components/react/react.min.js",
         "assets/bower_components/vue/dist/vue.min.js"
-    )
+    ),
+    true
 );
 
 echo $page->display($page->content);
