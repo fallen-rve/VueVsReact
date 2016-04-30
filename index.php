@@ -30,8 +30,8 @@ $page->footer_link(
     array(
         "assets/bower_components/jquery/dist/jquery.min.js",
         "assets/bower_components/jquery-ui/jquery-ui.min.js",
-        "assets/bower_components/underscore/underscore.js",
-        "assets/bower_components/backbone/backbone.js"
+        "assets/bower_components/react/react.min.js",
+        "assets/bower_components/vue/dist/vue.min.js"
     )
 );
 
