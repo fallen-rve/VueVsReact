@@ -5,16 +5,16 @@
     $this->footer_link( "pages/vue/helloWorld.js" );
     echo '<h1>Hello world test!</h1>';
 ?>
-<div id="helloWorld">
+<div id="helloWorld" class="lesson-wrap">
     <h3>Message through js file</h3>
     {{ message }}
 </div>
-<div id="twoWayBinding">
+<div id="twoWayBinding" class="lesson-wrap">
     <h3>Two Way Binding</h3>
     <p>{{ message }}</p>
     <input v-model="message">
 </div>
-<div id="todos">
+<div id="todos" class="lesson-wrap">
     <h3>ToDo Lists</h3>
     <ul>
         <li v-for="todo in todos">
@@ -22,12 +22,12 @@
         </li>
     </ul>
 </div>
-<div id="reverseMessage">
+<div id="reverseMessage" class="lesson-wrap">
     <h3>Reverse Paragraph</h3>
     <p>{{ message }}</p>
     <button v-on:click="reverseMessage">Reverse Message</button>
 </div>
-<div id="addToDos">
+<div id="addToDos" class="lesson-wrap">
     <h3>Adding ToDos</h3>
     <input v-model="newTodo" v-on:keyup.enter="addTodo">
     <ul>

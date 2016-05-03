@@ -12,12 +12,16 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "livereloadx": "^0.4.1",
     "node-sass": "^3.6.0",
     "nodemon": "^1.9.2"
   },
   "scripts": {
-  "build-css": "node-sass --include-path scss assets/scss/style.scss ./"
-},
+    "styles": "node-sass --include-path scss assets/sass/style.scss ./style.css",
+    "watch:css": "nodemon -e scss -x \"npm run styles\"",
+    "livereload": "livereloadx -p 35729 ./",
+    "watch": "npm run livereload"
+  },
   "license": "UNLICENSED",
   "homepage": ""
 }

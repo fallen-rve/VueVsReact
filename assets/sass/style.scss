@@ -1,4 +1,10 @@
-$color-background-body: #eee;
-body {
-    background: $color-background-body;
-}
+/**
+ * Main Scss File
+ * contains all included scss files
+ */
+
+// Import mixins & variables
+@import "utilities/mixins/index";
+@import "utilities/variables/index";
+
+@import "base/index";
