@@ -7,9 +7,9 @@
 ?>
 <!-- this is our View -->
 <div id="example-1" class="lesson-wrap">
-  Hello {{ name }}!
+    Hello {{ name }}!
 </div>
 
 <div id="example-2" class="lesson-wrap">
-  <p v-if="greeting">Hello!</p>
+    <p v-if="greeting">Hello!</p>
 </div>
