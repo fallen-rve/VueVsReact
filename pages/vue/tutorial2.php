@@ -37,3 +37,62 @@
     {{ $data | json }}
     
 </div>
+
+<div id="myvueinstance3" class="container lesson-wrap">
+    <div class="row">UI List Element</div>
+ 
+    <input type="text" class="form-control" v-model="filterkey">
+ 
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th><a href="#" v-on:click.prevent="sortvia('id')">id</a></th>
+            <th><a href="#" v-on:click.prevent="sortvia('framework')">framework</a></th>
+        </tr>
+        </thead>
+ 
+        <tbody>
+        <tr v-for="framework in frameworks | filterBy filterkey | orderBy sortparam order">
+            <td>{{ framework.id }}</td>
+            <td>{{ framework.framework }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="myvueinstance4" class="container lesson-wrap">
+ 
+    <h4>{{ string | upper }} </h4>
+ 
+    <h4>{{ string | lower }}</h4>
+ 
+</div>
+
+<div id="anotherdiv" class="container lesson-wrap">
+ 
+    <h4>{{ string | upper }} </h4>
+ 
+    <h4>{{ string | lower }} </h4>
+ 
+</div>
+
+<div id="myvueinstance5" class="container">
+    
+    <alert></alert>
+    
+</div>
+
+<div id="myvueinstance6" class="container lesson-wrap">
+ 
+    <alert type="info" bold="Greetings." msg="This is some information."></alert>
+    <alert type="warning" bold="Slow down." msg="You might crash."></alert>
+    <alert type="danger" bold="Oh no!" msg="The program just crashed!"></alert>
+    <alert type="success" bold="Rock Out" msg="with your Props out!"></alert>
+ 
+</div>
+
+<div id="myvueinstance7" class="container">
+ 
+    <button v-twitter="'You gotta see how cool Vue.js is!'" class="btn btn-info">Share this on Twitter</button>
+ 
+</div>

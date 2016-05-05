@@ -98,3 +98,4 @@ downloadedFiles/*
 
 # do not ignore .gitignore
 !.gitignore
+!.htaccess
