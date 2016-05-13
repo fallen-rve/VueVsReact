@@ -7,6 +7,9 @@ h1, h2, h3, h4, h5, h6 {
 table {
     width: 100%;
 }
+td, th {
+    text-align: left;
+}
 
 .lesson-wrap {
     background-color: #e2e4e6;
@@ -42,5 +45,139 @@ table {
         background-color: #f2dede;
         border-color: #ebccd1;
         color: #a94442;
+    }
+}
+button {
+    width: auto;
+    margin-bottom: 3px;
+    margin-top: 2px;
+    height: 33px;
+    vertical-align: middle;
+    padding: 0 .5em;
+    border: 0;
+    border-radius: .25em;
+    -moz-border-radius: .25em;
+    -webkit-border-radius: .25em;
+
+    &.goodButton {
+        color: $color-primary-color;
+        background-color: $color-primary-background;
+    }
+    &.badButton {
+        color: $color-bad-color;
+        background-color: $color-bad-background;
+    }
+}
+
+.user-modal-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    overflow-y: auto;
+    z-index: 3;
+    font-family: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+    font-size: 14px;
+    background-color: rgba(17,17,17,.9);
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    -ms-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+
+    * {
+        box-sizing: border-box;
+    }
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .user-modal {
+        position: relative;
+        margin: 50px auto;
+        width: 90%;
+        max-width: 500px;
+        background-color: #f6f6f6;
+        cursor: initial;
+    }
+    ul.form-switcher {
+        margin: 0;
+        padding: 0;
+
+        &:after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+
+        li {
+            list-style: none;
+            display: inline-block;
+            width: 50%;
+            float: left;
+            margin: 0;
+
+            a {
+                width: 100%;
+                display: block;
+                height: 50px;
+                line-height: 50px;
+                color: #666666;
+                background-color: #dddddd;
+                text-align: center;
+
+                &.active {
+                    color: #000000;
+                    background-color: #f6f6f6;
+                }
+            }
+        }
+    }
+    .form-login,
+    .form-register,
+    .form-password {
+        padding: 75px 25px 25px;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #eeeeee;
+    }
+
+    input[type="submit"] {
+        color: #f6f6f6;
+        border: 0;
+        margin-bottom: 0;
+        background-color: #3fb67b;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #3aa771;
+        }
+        &:active {
+            background-color: #379d6b;
+        }
+        &.disabled {
+            background-color: #98d6b7;
+        }
+    }
+
+    .links {
+        text-align: center;
+        padding-top: 25px;
+
+        a {
+            color: #3fb67b;
+        }
     }
 }
