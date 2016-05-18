@@ -245,6 +245,7 @@ button {
     color: white;
     background-color: #f44336; }
 
+.alert,
 .user-modal-container {
   position: fixed;
   width: 100%;
@@ -264,11 +265,16 @@ button {
   -o-transition: all 0.25s linear;
   -ms-transition: all 0.25s linear;
   transition: all 0.25s linear; }
+  .alert *,
   .user-modal-container * {
     box-sizing: border-box; }
+  .alert.active,
   .user-modal-container.active {
     opacity: 1;
     visibility: visible; }
+  .alert .alert-modal,
+  .alert .user-modal,
+  .user-modal-container .alert-modal,
   .user-modal-container .user-modal {
     position: relative;
     margin: 50px auto;
@@ -276,58 +282,134 @@ button {
     max-width: 500px;
     background-color: #f6f6f6;
     cursor: initial; }
-  .user-modal-container ul.form-switcher {
-    margin: 0;
-    padding: 0; }
-    .user-modal-container ul.form-switcher:after {
-      clear: both;
-      content: "";
-      display: block; }
-    .user-modal-container ul.form-switcher li {
-      list-style: none;
-      display: inline-block;
-      width: 50%;
-      float: left;
-      margin: 0; }
-      .user-modal-container ul.form-switcher li a {
-        width: 100%;
-        display: block;
-        height: 50px;
-        line-height: 50px;
-        color: #666666;
-        background-color: #dddddd;
-        text-align: center; }
-        .user-modal-container ul.form-switcher li a.active {
-          color: #000000;
-          background-color: #f6f6f6; }
-  .user-modal-container .form-login,
-  .user-modal-container .form-register,
-  .user-modal-container .form-password {
-    padding: 75px 25px 25px;
-    display: none; }
-    .user-modal-container .form-login.active,
-    .user-modal-container .form-register.active,
-    .user-modal-container .form-password.active {
-      display: block; }
-  .user-modal-container input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #eeeeee; }
-  .user-modal-container input[type="submit"] {
-    color: #f6f6f6;
-    border: 0;
-    margin-bottom: 0;
-    background-color: #3fb67b;
-    cursor: pointer; }
-    .user-modal-container input[type="submit"]:hover {
-      background-color: #3aa771; }
-    .user-modal-container input[type="submit"]:active {
-      background-color: #379d6b; }
-    .user-modal-container input[type="submit"].disabled {
-      background-color: #98d6b7; }
-  .user-modal-container .links {
-    text-align: center;
-    padding-top: 25px; }
-    .user-modal-container .links a {
-      color: #3fb67b; }
+
+.user-modal-container ul.form-switcher {
+  margin: 0;
+  padding: 0; }
+  .user-modal-container ul.form-switcher:after {
+    clear: both;
+    content: "";
+    display: block; }
+  .user-modal-container ul.form-switcher li {
+    list-style: none;
+    display: inline-block;
+    width: 50%;
+    float: left;
+    margin: 0; }
+    .user-modal-container ul.form-switcher li a {
+      width: 100%;
+      display: block;
+      height: 50px;
+      line-height: 50px;
+      color: #666666;
+      background-color: #dddddd;
+      text-align: center; }
+      .user-modal-container ul.form-switcher li a.active {
+        color: #000000;
+        background-color: #f6f6f6; }
+
+.user-modal-container .form-login,
+.user-modal-container .form-register,
+.user-modal-container .form-password {
+  padding: 75px 25px 25px;
+  display: none; }
+  .user-modal-container .form-login.active,
+  .user-modal-container .form-register.active,
+  .user-modal-container .form-password.active {
+    display: block; }
+
+.user-modal-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #eeeeee; }
+
+.user-modal-container input[type="submit"] {
+  color: #f6f6f6;
+  border: 0;
+  margin-bottom: 0;
+  background-color: #3fb67b;
+  cursor: pointer; }
+  .user-modal-container input[type="submit"]:hover {
+    background-color: #3aa771; }
+  .user-modal-container input[type="submit"]:active {
+    background-color: #379d6b; }
+  .user-modal-container input[type="submit"].disabled {
+    background-color: #98d6b7; }
+
+.user-modal-container .links {
+  text-align: center;
+  padding-top: 25px; }
+  .user-modal-container .links a {
+    color: #3fb67b; }
+
+html, body {
+  height: 100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  font-family: 'Lato'; }
+
+.container {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle; }
+
+.content {
+  text-align: center;
+  display: inline-block; }
+
+.title {
+  font-size: 96px; }
+
+.Modal__container {
+  max-width: 700px;
+  width: 90%;
+  background: white;
+  border-radius: 2px;
+  animation-duration: 0.3s;
+  animation-delay: 0s; }
+
+.Modal__header {
+  border-bottom: 1px solid white;
+  padding: 15px 10px;
+  background-color: silver;
+  color: white;
+  border-radius: 2px; }
+
+.Modal__header > h1 {
+  font-size: 27px;
+  font-weight: normal;
+  margin: 0; }
+
+.Modal__content {
+  padding: 10px; }
+
+.Modal__footer {
+  padding: 5px; }
+
+.u-overlay {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.naked-link {
+  color: inherit;
+  text-decoration: inherit; }
+
+/** Control the animation speed **/
+.animated {
+  animation-duration: 0.4s;
+  -webkit-animation-duration: 0.4s;
+  -moz-animation-duration: 0.4s; }

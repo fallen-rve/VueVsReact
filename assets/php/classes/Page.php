@@ -118,8 +118,11 @@ class Page {
     $this->charset = $charset;
   }
 
-  public function link($link, $prepend=false) {
+  public function link($link, $prepend=false, $base_url=true) {
     if (!is_array($link)) $link = array($link);
+    array_walk($link, function(&$value, $key, $base_url) {
+      $value = $base_url ? BASE_URL . $value : $value; 
+    }, $base_url);
     if ($prepend) {
       $this->include = array_merge($link, $this->include);
     } else {
@@ -127,8 +130,11 @@ class Page {
     }
   }
 
-  public function footer_link($link, $prepend=false) {
+  public function footer_link($link, $prepend=false, $base_url=true) {
     if (!is_array($link)) $link = array($link);
+    array_walk($link, function(&$value, $key, $base_url) {
+      $value = $base_url ? BASE_URL . $value : $value; 
+    }, $base_url);
     if ($prepend) {
       $this->footer_include = array_merge($link, $this->footer_include);
     } else {
@@ -268,12 +274,12 @@ class Page {
     }
     if (isset($sorted['css'])) {
       foreach ($sorted['css'] as $script) {
-        $scripts[] = '<link rel="stylesheet" type="text/css" href="' . BASE_URL . $script . '.css" />';
+        $scripts[] = '<link rel="stylesheet" type="text/css" href="' . $script . '.css" />';
       }
     }
     if (isset($sorted['js'])) {
       foreach ($sorted['js'] as $script) {
-        $scripts[] = '<script type="text/javascript" src="' . BASE_URL . $script . '.js"></script>';
+        $scripts[] = '<script type="text/javascript" src="' . $script . '.js"></script>';
       }
     }
     if (isset($sorted['other'])) $scripts = array_merge($scripts, $sorted['other']);
