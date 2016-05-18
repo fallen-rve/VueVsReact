@@ -9,14 +9,14 @@
 <div id="app">
     <div class="container">
         <div class="content">
-            <a href="#" on:click="{{ showModal('firstModal', ['foo' => 'FOO VALUE', 'bar' => 'BAR VALUE']) }}" class="naked-link title">First Modal</a><br>
-            <a href="#" on:click="{{ showModal('secondModal') }}" class="naked-link title">Second Modal</a>
+            <a href="#" v-on:click="showModal('firstModal', {'foo': 'FOO VALUE', 'bar': 'BAR VALUE'})" class="naked-link title">First Modal</a><br>
+            <a href="#" v-on:click="showModal('secondModal')" class="naked-link title">Second Modal</a>
         </div>
     </div>
 
     <template id="modal-box-template">
-        <div class="Modal u-overlay animated" on:click="closeModal" v-show="isModalOpen" transition="fade">
-            <div class="Modal__container animated" on:click.stop="" v-show="isModalOpen" transition="fadeWithMove">
+        <div class="Modal u-overlay animated" v-on:click="closeModal" v-show="isModalOpen" transition="fade">
+            <div class="Modal__container animated" v-on:click.stop="" v-show="isModalOpen" transition="fadeWithMove">
                 <header class="Modal__header">
                     <h1>
                         {{ title }}
