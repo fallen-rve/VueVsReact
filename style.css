@@ -343,54 +343,11 @@ button {
   .user-modal-container .links a {
     color: #3fb67b; }
 
-html, body {
-  height: 100%; }
-
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  display: table;
-  font-weight: 100;
-  font-family: 'Lato'; }
-
-.container {
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle; }
-
-.content {
-  text-align: center;
-  display: inline-block; }
-
-.title {
-  font-size: 96px; }
-
-.Modal__container {
-  max-width: 700px;
-  width: 90%;
-  background: white;
-  border-radius: 2px;
-  animation-duration: 0.3s;
-  animation-delay: 0s; }
-
-.Modal__header {
-  border-bottom: 1px solid white;
-  padding: 15px 10px;
-  background-color: silver;
-  color: white;
-  border-radius: 2px; }
-
-.Modal__header > h1 {
-  font-size: 27px;
-  font-weight: normal;
-  margin: 0; }
-
-.Modal__content {
-  padding: 10px; }
-
-.Modal__footer {
-  padding: 5px; }
+/** Control the animation speed **/
+.animated {
+  animation-duration: 0.4s;
+  -webkit-animation-duration: 0.4s;
+  -moz-animation-duration: 0.4s; }
 
 .u-overlay {
   position: fixed;
@@ -403,13 +360,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center; }
-
-.naked-link {
-  color: inherit;
-  text-decoration: inherit; }
-
-/** Control the animation speed **/
-.animated {
-  animation-duration: 0.4s;
-  -webkit-animation-duration: 0.4s;
-  -moz-animation-duration: 0.4s; }
+  .u-overlay .modal-container {
+    max-width: 700px;
+    width: 90%;
+    background: white;
+    border-radius: 2px;
+    animation-duration: 0.3s;
+    animation-delay: 0s; }
+    .u-overlay .modal-container .modal-header {
+      border-bottom: 1px solid white;
+      padding: 15px 10px;
+      background-color: silver;
+      color: white;
+      border-radius: 2px; }
+      .u-overlay .modal-container .modal-header > h1 {
+        font-size: 27px;
+        font-weight: normal;
+        margin: 0; }
+    .u-overlay .modal-container .modal-content {
+      padding: 10px; }
+    .u-overlay .modal-container .modal-footer {
+      padding: 5px; }

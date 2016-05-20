@@ -7,27 +7,23 @@
     echo '<h1><a href="https://gist.github.com/TahaSh/da262149f1ba0ba52ad8" target="_blank">Learning Alert with Vue.js!</a></h1>';
 ?>
 <div id="app">
-    <div class="container">
-        <div class="content">
-            <a href="#" v-on:click="showModal('firstModal', {'foo': 'FOO VALUE', 'bar': 'BAR VALUE'})" class="naked-link title">First Modal</a><br>
-            <a href="#" v-on:click="showModal('secondModal')" class="naked-link title">Second Modal</a>
-        </div>
-    </div>
+    <a href="#" v-on:click="showModal('firstModal', {'foo': 'FOO VALUE', 'bar': 'BAR VALUE'})" class="naked-link title">First Modal</a><br>
+    <a href="#" v-on:click="showModal('secondModal')" class="naked-link title">Second Modal</a>
 
     <template id="modal-box-template">
-        <div class="Modal u-overlay animated" v-on:click="closeModal" v-show="isModalOpen" transition="fade">
-            <div class="Modal__container animated" v-on:click.stop="" v-show="isModalOpen" transition="fadeWithMove">
-                <header class="Modal__header">
+        <div class="modal u-overlay animated" v-on:click="closeModal" v-show="isModalOpen" transition="fade">
+            <div class="modal-container animated" v-on:click.stop="" v-show="isModalOpen" transition="fadeWithMove">
+                <header class="modal-header">
                     <h1>
                         {{ title }}
                     </h1>
                 </header>
 
-                <div class="Modal__content">
+                <div class="modal-content">
                     <slot></slot>
                 </div>
 
-                <footer class="Modal__footer"></footer>
+                <footer class="modal-footer"></footer>
             </div>
         </div>
     </template>
